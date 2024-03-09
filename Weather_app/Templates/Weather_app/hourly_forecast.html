@@ -1,0 +1,12 @@
+{% extends "Main.html" %}
+<!-- -->
+{% block content %}
+<!-- -->
+{% for forecast in daily_forecast %}
+<p>Date : {{forecast.date}}</p>
+<p>Temperature : {{forecast.temp}}</p>
+<p>Weather : {{forecast.weather}}</p>
+<p>Humidity : {{forecast.humidity}}%</p>
+<p>Wind : {{forecast.wind}}m/s</p>
+<img src="http://openweathermap.org/img/w/{{ forecast.icon }}.png" />
+{% endfor %} {% endblock content %}
