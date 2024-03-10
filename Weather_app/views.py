@@ -56,6 +56,7 @@ def forecastWeather(request):
         daily_forecast.append({"city": forecastWeather["city"]["name"]})
         context = {
             "daily_forecast": daily_forecast,
+            "city": city,
         }
         return render(request, "Weather_app/hourly_forecast.html", context)
     else:
@@ -82,6 +83,7 @@ def dailyForecast(request):
             date2 = date1
         context = {
             "daily_forecast": daily_forecast,
+            "city": city,
         }
         return render(request, "Weather_app/daily_forecast.html", context)
     else:

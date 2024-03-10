@@ -2,6 +2,7 @@
 <!--    -->
 {% block content %}
 <h1>Daily Forecast</h1>
+<p>City : {{city}}</p>
 {% for day in daily_forecast %}
 <p>{{day.date}}</p>
 <p>{{day.temp}}</p>
