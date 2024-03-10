@@ -1,7 +1,8 @@
+from django.shortcuts import render
+
+
 def searchCity(request):
-    # city = "london"
-    # if request.GET.get("city"):
-    #     city = request.GET.get("city")
+    city = "london"
     if request.method == "POST":
         city = request.POST["city"]
-        return city
+    return city
