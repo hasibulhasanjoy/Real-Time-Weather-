@@ -4,9 +4,14 @@ from .utils import searchCity
 
 
 # Create your views here.
+currentWeather = None
+forecastWeather = None
+city = None
+
+
 def home(request):
+    global currentWeather, forecastWeather, city
     currentWeather, forecastWeather, city = apiCall(request)
-    # currentWeather = getCurrentWeather(request)
     if currentWeather is not None:
         temp = currentWeather["main"]["temp"] - 273.15
         feelsLike = currentWeather["main"]["feels_like"] - 273.15
@@ -39,7 +44,7 @@ def home(request):
 
 
 def forecastWeather(request):
-    currentWeather, forecastWeather, city = apiCall(request)
+    # currentWeather, forecastWeather, city = apiCall(request)
     if forecastWeather is not None:
         daily_forecast = []
         for i in forecastWeather["list"]:
@@ -64,7 +69,7 @@ def forecastWeather(request):
 
 
 def dailyForecast(request):
-    currentWeather, forecastWeather, city = apiCall(request)
+    # currentWeather, forecastWeather, city = apiCall(request)
     if forecastWeather is not None:
         daily_forecast = []
         date1 = ""
