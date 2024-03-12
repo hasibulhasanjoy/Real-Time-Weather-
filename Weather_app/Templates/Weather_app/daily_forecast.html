@@ -4,10 +4,17 @@
 <h1>Daily Forecast</h1>
 <p>City : {{city}}</p>
 {% for day in daily_forecast %}
-<p>{{day.date}}</p>
-<p>{{day.temp}}</p>
-<p>{{day.weather}}</p>
-<img src="http://openweathermap.org/img/w/{{ day.icon }}.png" />
+<div class="card-container">
+  <div class="card">
+    <div class="card-content">
+      <img src="http://openweathermap.org/img/w/{{ day.icon }}.png" />
+      <p>{{day.date}}</p>
+      <p>{{day.temp}}</p>
+      <p>{{day.weather}}</p>
+    </div>
+  </div>
+</div>
+
 {% endfor %}
 <!--    -->
 {% endblock content %}
