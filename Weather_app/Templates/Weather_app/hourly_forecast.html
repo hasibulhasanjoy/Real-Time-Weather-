@@ -3,17 +3,41 @@
 {% block content %}
 <!-- -->
 {% for forecast in daily_forecast %}
-<div class="card-container">
-  <div class="card">
-    <div class="card-content">
-      <img src="http://openweathermap.org/img/w/{{ forecast.icon }}.png" />
-      <p>City : {{city}}</p>
-      <p>Date : {{forecast.date}}</p>
-      <p>Temperature : {{forecast.temp}}</p>
-      <p>Weather : {{forecast.weather}}</p>
-      <p>Humidity : {{forecast.humidity}}%</p>
-      <p>Wind : {{forecast.wind}}m/s</p>
+<div class="wrapper">
+  <div class="widget-container">
+    <div class="top-left">
+      <h1 class="city" id="city">{{city}}</h1>
+      <h2 id="day">{{forecast.day}}</h2>
+      <h3 id="date">{{forecast.month}}, {{forecast.date}} {{forecast.year}}</h3>
+      <h3 id="time">{{forecast.time}}</h3>
+      <p class="geo"></p>
+    </div>
+    <div class="top-right">
+      <h1 id="weather-status">Weather / Weather Status</h1>
+      <img
+        class="weather-icon"
+        src="http://openweathermap.org/img/w/{{ forecast.icon }}.png"
+      />
+    </div>
+    <div class="horizontal-half-divider"></div>
+    <div class="bottom-left">
+      <h1 id="temperature">{{forecast.temp}}</h1>
+      <h2 id="celsius">&degC</h2>
+    </div>
+    <div class="vertical-half-divider"></div>
+    <div class="bottom-right">
+      <div class="other-details-key">
+        <p>Wind Speed</p>
+        <p>Humidity</p>
+        <p>Weather</p>
+      </div>
+      <div class="other-details-values">
+        <p class="windspeed">{{forecast.wind}} m/s</p>
+        <p class="humidity">{{forecast.humidity}} %</p>
+        <p class="pressure">{{forecast.weather}}</p>
+      </div>
     </div>
   </div>
 </div>
+<br />
 {% endfor %} {% endblock content %}

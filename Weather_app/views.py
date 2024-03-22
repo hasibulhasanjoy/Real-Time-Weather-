@@ -60,8 +60,21 @@ def forecastWeather(request):
     if forecastWeather is not None:
         daily_forecast = []
         for i in forecastWeather["list"]:
+            date_string = str(i["dt_txt"])
+            print(date_string)
+            date_object = datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S")
+            year = date_object.strftime("%Y")
+            month = date_object.strftime("%B")
+            day = date_object.strftime("%A")
+            date = date_object.strftime("%d")
+            time = date_object.strftime("%I:%M: %p")
             dict = {
-                "date": i["dt_txt"],
+                "year": year,
+                "month": month,
+                "day": day,
+                "date": date,
+                "time": time,
+                "temp": round(i["main"]["temp"] - 273.15, 2),
                 "temp": round(i["main"]["temp"] - 273.15, 2),
                 "humidity": i["main"]["humidity"],
                 "weather": i["weather"][0]["main"],
@@ -70,10 +83,10 @@ def forecastWeather(request):
             }
             daily_forecast.append(dict)
 
-        daily_forecast.append({"city": forecastWeather["city"]["name"]})
+        # daily_forecast.append({"city": forecastWeather["city"]["name"]})
         context = {
             "daily_forecast": daily_forecast,
-            "city": city,
+            "city": city.upper(),
         }
         return render(request, "Weather_app/hourly_forecast.html", context)
     else:
@@ -100,7 +113,7 @@ def dailyForecast(request):
             date2 = date1
         context = {
             "daily_forecast": daily_forecast,
-            "city": city,
+            "city": city.upper(),
         }
         return render(request, "Weather_app/daily_forecast.html", context)
     else:
