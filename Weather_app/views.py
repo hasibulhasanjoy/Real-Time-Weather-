@@ -103,10 +103,20 @@ def dailyForecast(request):
             date = str(i["dt_txt"])
             date1 = date[0:10]
             if date1 != date2:
+                date_object = datetime.strptime(date1, "%Y-%m-%d")
+                year = date_object.strftime("%Y")
+                month = date_object.strftime("%B")
+                day = date_object.strftime("%A")
+                date_num = date_object.strftime("%d")
                 dict = {
-                    "date": date1,
+                    "date": date_num,
+                    "year": year,
+                    "month": month,
+                    "day": day,
                     "temp": round(i["main"]["temp"] - 273.15, 2),
                     "weather": i["weather"][0]["main"],
+                    "humidity": i["main"]["humidity"],
+                    "wind": i["wind"]["speed"],
                     "icon": i["weather"][0]["icon"],
                 }
                 daily_forecast.append(dict)
