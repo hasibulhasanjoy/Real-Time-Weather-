@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   background-color: #263238;
   margin: 0;
@@ -20,6 +20,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-right: 5%;
 }
 .navbar .items {
   list-style-type: none;
