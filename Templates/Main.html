@@ -8,13 +8,14 @@
     <title>Weather</title>
   </head>
   <body>
-    <form action='{% url "home" %}' method="POST">
-      {% csrf_token %}
-      <input type="text" name="city" placeholder="Enter City" />
-      <button type="submit" class="btn">Search</button>
-    </form>
     <nav class="navbar">
-      <ul>
+      <div></div>
+      <form class="search-bar" action='{% url "home" %}' method="POST">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Enter City" />
+        <button type="submit" class="btn">Search</button>
+      </form>
+      <ul class="items">
         <li><a href='{% url "home" %}'>Current</a></li>
         <li><a href='{% url "hourly" %}'>Hourly</a></li>
         <li><a href='{% url "daily" %}'>5 Days</a></li>
