@@ -1,19 +1,44 @@
 {% extends "Main.html" %}
 <!--  -->
 {% block content %}
-<div class="card-container">
-  <div class="card">
-    <div class="card-content">
-      <p>City : {{city}}</p>
-      <p>temperature : {{temp}} ºC</p>
-      <p>Weather : {{weather}}</p>
-      <img src="http://openweathermap.org/img/w/{{ icon }}.png" />
-      <p>Feels like : {{feels_like}} ºC</p>
-      <p>Minimum : {{minimum}} ºC</p>
-      <p>Maximum : {{maximum}} ºC</p>
-      <p>Humidity : {{humidity}}%</p>
-      <p>Pressure : {{pressure}}hPa</p>
-      <p>Wind : {{wind}}m/s</p>
+
+<div class="wrapper">
+  <div class="widget-container">
+    <div class="top-left">
+      <h1 class="city" id="city">{{city}}</h1>
+      <h2 id="day">Day</h2>
+      <h3 id="date">Month, Day Year</h3>
+      <h3 id="time">Time</h3>
+      <p class="geo"></p>
+    </div>
+    <div class="top-right">
+      <h1 id="weather-status">Weather / Weather Status</h1>
+      <img
+        class="weather-icon"
+        src="http://openweathermap.org/img/w/{{ icon }}.png"
+      />
+    </div>
+    <div class="horizontal-half-divider"></div>
+    <div class="bottom-left">
+      <h1 id="temperature">{{temp}}</h1>
+      <h2 id="celsius">&degC</h2>
+    </div>
+    <div class="vertical-half-divider"></div>
+    <div class="bottom-right">
+      <div class="other-details-key">
+        <p>Wind Speed</p>
+        <p>Humidity</p>
+        <p>Pressure</p>
+        <p>Minimum</p>
+        <p>Maximum</p>
+      </div>
+      <div class="other-details-values">
+        <p class="windspeed">{{wind}} m/s</p>
+        <p class="humidity">{{humidity}} %</p>
+        <p class="pressure">{{pressure}} hPa</p>
+        <p class="sunrise-time">{{minimum}} ºC</p>
+        <p class="sunset-time">{{maximum}} ºC</p>
+      </div>
     </div>
   </div>
 </div>
