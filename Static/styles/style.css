@@ -173,7 +173,7 @@ p {
 }
 
 #temperature {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 800;
   margin-right: 5px;
 }
@@ -190,13 +190,8 @@ p {
 #celsius,
 #temp-divider,
 #fahrenheit {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 800;
-}
-
-#celsius:hover,
-#fahrenheit:hover {
-  cursor: pointer;
 }
 
 /* Bottom-Right CSS */
@@ -212,20 +207,4 @@ p {
   font-size: 16px;
   font-weight: 400;
   margin-left: 40px;
-}
-
-.watermark-link {
-  text-decoration: none;
-  color: #b0bec5;
-}
-
-.watermark-link:hover {
-  color: white;
-  text-decoration: none;
-}
-
-.watermark {
-  margin-top: 10px;
-  text-align: center;
-  font-weight: 400;
 }

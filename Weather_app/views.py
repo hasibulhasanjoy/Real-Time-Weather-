@@ -1,7 +1,7 @@
 import requests
 from django.shortcuts import render
 from .utils import searchCity
-
+from datetime import datetime
 
 # Create your views here.
 currentWeather = None
@@ -20,6 +20,13 @@ def home(request):
         pressure = currentWeather["main"]["pressure"]
         humidity = currentWeather["main"]["humidity"]
         wind = currentWeather["wind"]["speed"]
+        timestamp = currentWeather["dt"]
+        formatted_time = datetime.fromtimestamp(timestamp)
+        day = formatted_time.strftime("%A")
+        month = formatted_time.strftime("%B")
+        time = formatted_time.strftime("%I:%M %p")
+        date = formatted_time.strftime("%d")
+        year = formatted_time.strftime("%Y")
         temp = round(temp, 2)
         feelsLike = round(feelsLike, 2)
         minimum = round(minimum, 2)
@@ -27,7 +34,12 @@ def home(request):
         weather = currentWeather["weather"][0]["main"]
         icon = currentWeather["weather"][0]["icon"]
         context = {
-            "city": city,
+            "day": day,
+            "month": month,
+            "time": time,
+            "date": date,
+            "year": year,
+            "city": city.upper(),
             "temp": temp,
             "weather": weather,
             "feels_like": feelsLike,

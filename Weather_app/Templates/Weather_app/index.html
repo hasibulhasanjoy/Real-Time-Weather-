@@ -6,9 +6,8 @@
   <div class="widget-container">
     <div class="top-left">
       <h1 class="city" id="city">{{city}}</h1>
-      <h2 id="day">Day</h2>
-      <h3 id="date">Month, Day Year</h3>
-      <h3 id="time">Time</h3>
+      <h2 id="day">{{day}}</h2>
+      <h3 id="date">{{month}}, {{date}} {{year}}</h3>
       <p class="geo"></p>
     </div>
     <div class="top-right">
@@ -26,6 +25,7 @@
     <div class="vertical-half-divider"></div>
     <div class="bottom-right">
       <div class="other-details-key">
+        <p>Feels like</p>
         <p>Wind Speed</p>
         <p>Humidity</p>
         <p>Pressure</p>
@@ -33,6 +33,7 @@
         <p>Maximum</p>
       </div>
       <div class="other-details-values">
+        <p class="windspeed">{{feels_like}} &degC</p>
         <p class="windspeed">{{wind}} m/s</p>
         <p class="humidity">{{humidity}} %</p>
         <p class="pressure">{{pressure}} hPa</p>
